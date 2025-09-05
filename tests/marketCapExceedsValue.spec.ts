@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { setConsentCookie } from '../utils/consent';
 import { extractRowsForMarketCap } from '../utils/tableSort';
+import { saveDataToFile } from '../utils/generateFile';
 
 const MARKET_CAP_MINIMUM = 7000000;
 //const MARKET_CAP_MINIMUM = 5000;
@@ -40,9 +41,10 @@ test('Check market cap exceeds 7 million', async ({ page }) => {
   const rows = await extractRowsForMarketCap(tableRows);
   rows.forEach((row, index) => {
     console.log(
-      `${index + 1}. Code:${row.code} CompanyName: ${row.name} Change %:${
-        row.marketCap
+      `${index + 1}. Code:${row.code} CompanyName: ${row.name} Change %: ${
+        row.marketCapValue
       } `
     );
   });
+  saveDataToFile(rows, 'marketCapResultsData');
 });

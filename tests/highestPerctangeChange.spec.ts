@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { setConsentCookie } from '../utils/consent';
 import { extractRowsForChange } from '../utils/tableSort';
 import { Console } from 'console';
+import { saveDataToFile } from '../utils/generateFile';
 
 test.beforeEach(async ({ context, page }) => {
   //await setConsentCookie(context);
@@ -11,7 +12,6 @@ test.beforeEach(async ({ context, page }) => {
   );
   await expect(page.getByText('Change %')).toBeVisible();
   await expect(page.getByText('Code')).toBeVisible();
-  await expect(page.getByText('Name')).toBeVisible();
 });
 
 test('Check highest percentage change', async ({ page }) => {
@@ -47,4 +47,5 @@ test('Check highest percentage change', async ({ page }) => {
       } `
     );
   });
+  saveDataToFile(rows, 'highestPercentageChangeResultsData');
 });

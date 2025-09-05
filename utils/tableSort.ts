@@ -1,11 +1,11 @@
 import { Locator } from '@playwright/test';
 
-//TODO: Given further time I'd make these two functions one more generic function with filter options. 
+//TODO: Given further time I'd make these two functions one more generic function with filter options.
 
 export interface StockRow {
   code: string;
   name: string;
-  marketCap?: number;
+  marketCapValue?: number;
   change?: number;
 }
 
@@ -45,7 +45,8 @@ export async function extractRowsForMarketCap(
       const code = await row.locator('td').nth(0).innerText();
       const name = await row.locator('td').nth(1).innerText();
       const marketCap = await row.locator('td').nth(3).innerText();
-      console.log(`${i + 1}. ${code}. ${name} Change %:${marketCap}`);
+      rows.push({ code, name, marketCapValue });
+      //console.log(`${i + 1}. ${code}. ${name} Change %:${marketCap}`);
     } else {
       continue;
     }

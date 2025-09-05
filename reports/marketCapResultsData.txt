@@ -1,0 +1,20 @@
+1. code: AZN,name: ASTRAZENECA PLC ORD SHS $0.25,marketCapValue: 188998.46
+2. code: HSBA,name: HSBC HLDGS PLC ORD $0.50 (UK REG),marketCapValue: 166560.51
+3. code: SHEL,name: SHELL PLC ORD EUR0.07,marketCapValue: 156954.01
+4. code: ULVR,name: UNILEVER PLC ORD 3 1/9P,marketCapValue: 117714.98
+5. code: BATS,name: BRITISH AMERICAN TOBACCO PLC ORD 25P,marketCapValue: 90442.31
+6. code: RR.,name: ROLLS-ROYCE HOLDINGS PLC ORD SHS 20P,marketCapValue: 90170.14
+7. code: BP.,name: BP PLC $0.25,marketCapValue: 67409.48
+8. code: REL,name: RELX PLC ORD 14 51/116P,marketCapValue: 64030.75
+9. code: GSK,name: GSK PLC ORD 31 1/4P,marketCapValue: 59791.69
+10. code: RIO,name: RIO TINTO PLC ORD 10P,marketCapValue: 57741.35
+11. code: BA.,name: BAE SYSTEMS PLC ORD 2.5P,marketCapValue: 52942.03
+12. code: BARC,name: BARCLAYS PLC ORD 25P,marketCapValue: 52001.11
+13. code: NG.,name: NATIONAL GRID PLC ORD 12 204/473P,marketCapValue: 50630.23
+14. code: LSEG,name: LONDON STOCK EXCHANGE GROUP PLC ORD SHS 6 79/86P,marketCapValue: 48944.35
+15. code: LLOY,name: LLOYDS BANKING GROUP PLC ORD 10P,marketCapValue: 47813.78
+16. code: DGE,name: DIAGEO PLC ORD 28 101/108P,marketCapValue: 45175.18
+17. code: CPG,name: COMPASS GROUP PLC ORD 11 1/20P,marketCapValue: 43386.32
+18. code: NWG,name: NATWEST GROUP PLC ORD 107.69P,marketCapValue: 41765.17
+19. code: RKT,name: RECKITT BENCKISER GROUP PLC ORD 10P,marketCapValue: 38449.26
+20. code: III,name: 3I GROUP PLC ORD 73 19/22P,marketCapValue: 38041.01
