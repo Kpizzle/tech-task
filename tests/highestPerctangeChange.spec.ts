@@ -1,7 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { setConsentCookie } from '../utils/consent';
 import { extractRowsForChange } from '../utils/tableSort';
-import { Console } from 'console';
 import { saveDataToFile } from '../utils/generateFile';
 import { dismissCookieBanner } from '../utils/dismissCookieBanner';
 import { reporter } from '../utils/report';

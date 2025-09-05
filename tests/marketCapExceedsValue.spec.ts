@@ -10,6 +10,8 @@ test.beforeEach(async ({ context, page }) => {
   await expect(page).toHaveTitle(
     'Table - FTSE 100 FTSE constituents | London Stock Exchange'
   );
+  await expect(page.getByText('Market cap (m)')).toBeVisible();
+  await expect(page.getByText('Code')).toBeVisible();
 });
 
 test('Check market cap exceeds 7 million', async ({ page }) => {
