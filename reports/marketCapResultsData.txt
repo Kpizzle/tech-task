@@ -1,6 +1,0 @@
-1. code: AZN,name: ASTRAZENECA PLC ORD SHS $0.25,marketCapValue: 188998.46
-2. code: HSBA,name: HSBC HLDGS PLC ORD $0.50 (UK REG),marketCapValue: 166560.51
-3. code: SHEL,name: SHELL PLC ORD EUR0.07,marketCapValue: 156954.01
-4. code: ULVR,name: UNILEVER PLC ORD 3 1/9P,marketCapValue: 117714.98
-5. code: BATS,name: BRITISH AMERICAN TOBACCO PLC ORD 25P,marketCapValue: 90442.31
-6. code: RR.,name: ROLLS-ROYCE HOLDINGS PLC ORD SHS 20P,marketCapValue: 90170.14
