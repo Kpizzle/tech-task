@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { setConsentCookie } from '../utils/consent';
+import { extractRowsForMarketCap } from '../utils/tableSort';
 
 const MARKET_CAP_MINIMUM = 7000000;
 //const MARKET_CAP_MINIMUM = 5000;
@@ -36,19 +37,12 @@ test('Check market cap exceeds 7 million', async ({ page }) => {
   const rowCount = await tableRows.count();
 
   console.log('Market cap exceeds value');
-  for (let i = 0; i < rowCount; i++) {
-    const row = tableRows.nth(i);
-    const marketCap = await row.locator('td').nth(3).innerText();
-
-    let marketCapValue = parseFloat(marketCap.replace(/,/g, ''));
-
-    if (marketCapValue > MARKET_CAP_MINIMUM) {
-      const code = await row.locator('td').nth(0).innerText();
-      const name = await row.locator('td').nth(1).innerText();
-      const capValue = await row.locator('td').nth(3).innerText();
-      console.log(`${i + 1}. ${code}. ${name} Change %:${capValue}`);
-    } else {
-      continue;
-    }
-  }
+  const rows = await extractRowsForMarketCap(tableRows);
+  rows.forEach((row, index) => {
+    console.log(
+      `${index + 1}. Code:${row.code} CompanyName: ${row.name} Change %:${
+        row.marketCap
+      } `
+    );
+  });
 });

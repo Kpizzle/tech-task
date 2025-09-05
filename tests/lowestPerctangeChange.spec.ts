@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { setConsentCookie } from '../utils/consent';
+import { extractRowsForChange } from '../utils/tableSort';
 
 test.beforeEach(async ({ context, page }) => {
   //await setConsentCookie(context);
@@ -26,19 +27,24 @@ test('Check lowest percentage change', async ({ page }) => {
     .locator('div')
     .click();
 
+  //Network request checked needed as PW to fast - table needs to render
   await page.waitForResponse((response) => response.url().includes('refresh'));
 
-  //extract into util function
+  //Assert table exists
+  await expect(await page.locator('app-ftse-index-table')).toBeVisible();
   const tableRows = await page.locator('app-ftse-index-table tbody tr');
-  //const rowCount = await tableRows.count();
+  const rowCount = await tableRows.count();
+  expect(rowCount).toBeGreaterThan(9);
 
   //TODO - fix issue with full name not being displayed
-  console.log('Lowest percentage change');
-  for (let i = 0; i < 10; i++) {
-    const row = tableRows.nth(i);
-    const code = await row.locator('td').nth(0).innerText();
-    const name = await row.locator('td').nth(1).innerText();
-    const change = await row.locator('td').last().innerText();
-    console.log(`${i + 1}. ${code}. ${name} Change %:${change}`);
-  }
+  console.log('Highest percentage change');
+
+  const rows = await extractRowsForChange(tableRows, 10);
+  rows.forEach((row, index) => {
+    console.log(
+      `${index + 1}. Code:${row.code} CompanyName: ${row.name} Change %:${
+        row.change
+      } `
+    );
+  });
 });
