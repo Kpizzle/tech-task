@@ -1,0 +1,10 @@
+1. code: MRO,name: MELROSE INDUSTRIES PLC ORD GBP0.001,change: 2.7
+2. code: ENT,name: ENTAIN PLC ORD EUR0.01,change: 2.44
+3. code: RIO,name: RIO TINTO PLC ORD 10P,change: 2.29
+4. code: BKG,name: BERKELEY GROUP HOLDINGS (THE) PLC ORD 5.6110477936P,change: 2.18
+5. code: AV.,name: AVIVA PLC ORD 32 17/19P,change: 2.11
+6. code: AHT,name: ASHTEAD GROUP PLC ORD 10P,change: 2.08
+7. code: GLEN,name: GLENCORE PLC ORD USD0.01,change: 1.91
+8. code: BTRW,name: BARRATT REDROW PLC ORD 10P,change: 1.89
+9. code: AAL,name: ANGLO AMERICAN PLC ORD USD0.623855311355311,change: 1.86
+10. code: DPLM,name: DIPLOMA PLC ORD 5P,change: 1.69

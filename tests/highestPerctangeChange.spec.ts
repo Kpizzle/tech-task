@@ -3,9 +3,10 @@ import { setConsentCookie } from '../utils/consent';
 import { extractRowsForChange } from '../utils/tableSort';
 import { Console } from 'console';
 import { saveDataToFile } from '../utils/generateFile';
+import { dismissCookieBanner } from '../utils/dismissCookieBanner';
+import { reporter } from '../utils/report';
 
-test.beforeEach(async ({ context, page }) => {
-  //await setConsentCookie(context);
+test.beforeEach(async ({ page }) => {
   await page.goto('/indices/ftse-100/constituents/table');
   await expect(page).toHaveTitle(
     'Table - FTSE 100 FTSE constituents | London Stock Exchange'
@@ -15,14 +16,7 @@ test.beforeEach(async ({ context, page }) => {
 });
 
 test('Check highest percentage change', async ({ page }) => {
-  //Check if cookie banner is present and dismiss
-  //Todo - refactor into util function
-  await page.waitForTimeout(3000);
-  if (
-    await page.getByRole('button', { name: 'Accept all cookies' }).isVisible()
-  ) {
-    await page.getByRole('button', { name: 'Accept all cookies' }).click();
-  }
+  await dismissCookieBanner(page);
   await page.getByText('Change %').click();
   await page
     .getByRole('listitem')
@@ -36,16 +30,7 @@ test('Check highest percentage change', async ({ page }) => {
   const rowCount = await tableRows.count();
   expect(rowCount).toBeGreaterThan(9);
 
-  //TODO - fix issue with full name not being displayed
-  console.log('Highest percentage change');
-
   const rows = await extractRowsForChange(tableRows, 10);
-  rows.forEach((row, index) => {
-    console.log(
-      `${index + 1}. Code:${row.code} CompanyName: ${row.name} Change %:${
-        row.change
-      } `
-    );
-  });
+  reporter(rows, 'Highest percentage change');
   saveDataToFile(rows, 'highestPercentageChangeResultsData');
 });

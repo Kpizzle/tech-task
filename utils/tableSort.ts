@@ -10,7 +10,11 @@ export interface StockRow {
 }
 
 //move to env file
-const MARKET_CAP_MINIMUM = 2000;
+const MARKET_CAP_MINIMUM = Number(process.env.MARKET_CAP_MINIMUM) || 0;
+if (MARKET_CAP_MINIMUM == 0) {
+  console.log('Market cap value has not been set. ');
+  throw new Error('Market cap value has not been set.');
+}
 
 export async function extractRowsForChange(
   tableRows: Locator,
